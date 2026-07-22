@@ -24,13 +24,13 @@ public class CultureMiddleware
         var opt = options.Value;
         var language = await ResolveLanguageAsync(context, languageRepo, preferenceRepo, currentUser, opt);
 
-        var cultureCode = language?.Code ?? opt.DefaultRequestCulture.Culture;
+        var cultureCode = language?.Code ?? opt.DefaultCulture;
         var cultureInfo = new CultureInfo(cultureCode);
 
         CultureInfo.CurrentCulture = cultureInfo;
         CultureInfo.CurrentUICulture = cultureInfo;
 
-        var direction = language?.Direction == Direction.Rtl || cultureInfo.TextInfo.IsRightToLeft ? "rtl" : "ltr";
+        var direction = language?.Direction == Direction.Rtl ? "rtl" : "ltr";
 
         context.Items["Culture"] = cultureCode;
         context.Items["Direction"] = direction;
@@ -47,7 +47,7 @@ public class CultureMiddleware
         GlobalizationOptions options)
     {
         var cookie = context.Request.Cookies["Basir.Culture"];
-        if (!string.IsNullOrEmpty(cookie) && options.SupportedCultures.Contains(cookie))
+        if (!string.IsNullOrEmpty(cookie))
         {
             var lang = await languageRepo.GetByCodeAsync(cookie);
             if (lang is not null) return lang;
@@ -70,7 +70,7 @@ public class CultureMiddleware
             {
                 var preferred = acceptLanguage.Split(',')
                     .Select(x => x.Split(';')[0].Trim())
-                    .FirstOrDefault(x => options.SupportedCultures.Contains(x));
+                    .FirstOrDefault();
 
                 if (!string.IsNullOrEmpty(preferred))
                 {

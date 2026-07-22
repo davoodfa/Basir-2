@@ -8,6 +8,4 @@ public interface ICultureContext
     string CurrentLanguage { get; }
     Direction Direction { get; }
     bool IsRtl { get; }
-    List<string> SupportedCultures { get; }
-    List<string> SupportedUICultures { get; }
 }

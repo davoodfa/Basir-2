@@ -48,7 +48,6 @@ public static class ServiceCollectionExtensions
         services.AddHttpContextAccessor();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddScoped<ICultureContext, CultureContextService>();
-        services.AddScoped<ICultureService, CultureService>();
         services.AddScoped<IThemeContext, ThemeContextService>();
 
         return services;
