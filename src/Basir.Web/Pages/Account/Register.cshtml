@@ -1,16 +1,16 @@
 @page
 @model RegisterModel
 @{
-    ViewData["Title"] = "ثبت‌نام";
+    ViewData["Title"] = LAuth["Register.Title"];
 }
 
 <div class="auth-page">
     <div class="auth-card" style="max-width: 520px;">
         <div class="card">
             <div class="card-header">
-                <div class="app-logo"><i class="bi bi-diamond-fill"></i> باسمه</div>
-                <h2>ایجاد حساب کاربری</h2>
-                <p class="subtitle">برای ثبت‌نام اطلاعات زیر را تکمیل کنید</p>
+                <div class="app-logo"><i class="bi bi-diamond-fill"></i> @LLayout["Brand"]</div>
+                <h2>@LAuth["Register.Title"]</h2>
+                <p class="subtitle">@LAuth["Register.Subtitle"]</p>
             </div>
             <div class="card-body">
                 <form method="post">
@@ -19,38 +19,38 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-floating">
-                                <input asp-for="Input.FirstName" class="form-control" placeholder="نام" />
-                                <label asp-for="Input.FirstName"><i class="bi bi-person"></i> نام</label>
+                                <input asp-for="Input.FirstName" class="form-control" placeholder="@LAuth["Register.FirstName"]" />
+                                <label asp-for="Input.FirstName"><i class="bi bi-person"></i> @LAuth["Register.FirstName"]</label>
                                 <span asp-validation-for="Input.FirstName" class="field-validation-error"></span>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-floating">
-                                <input asp-for="Input.LastName" class="form-control" placeholder="نام خانوادگی" />
-                                <label asp-for="Input.LastName"><i class="bi bi-person"></i> نام خانوادگی</label>
+                                <input asp-for="Input.LastName" class="form-control" placeholder="@LAuth["Register.LastName"]" />
+                                <label asp-for="Input.LastName"><i class="bi bi-person"></i> @LAuth["Register.LastName"]</label>
                                 <span asp-validation-for="Input.LastName" class="field-validation-error"></span>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input asp-for="Input.Email" class="form-control" placeholder="example@email.com" />
-                        <label asp-for="Input.Email"><i class="bi bi-envelope"></i> ایمیل</label>
+                        <input asp-for="Input.Email" class="form-control" placeholder="@LAuth["Login.Placeholder.Email"]" />
+                        <label asp-for="Input.Email"><i class="bi bi-envelope"></i> @LAuth["Register.Email"]</label>
                         <span asp-validation-for="Input.Email" class="field-validation-error"></span>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-floating">
-                                <input asp-for="Input.UserName" class="form-control" placeholder="نام کاربری" />
-                                <label asp-for="Input.UserName"><i class="bi bi-at"></i> نام کاربری</label>
+                                <input asp-for="Input.UserName" class="form-control" placeholder="@LAuth["Register.UserName"]" />
+                                <label asp-for="Input.UserName"><i class="bi bi-at"></i> @LAuth["Register.UserName"]</label>
                                 <span asp-validation-for="Input.UserName" class="field-validation-error"></span>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-floating">
-                                <input asp-for="Input.PhoneNumber" class="form-control ltr" placeholder="+98۹۱۲۳۴۵۶۷۸۹" />
-                                <label asp-for="Input.PhoneNumber"><i class="bi bi-telephone"></i> شماره تماس</label>
+                                <input asp-for="Input.PhoneNumber" class="form-control ltr" placeholder="@LAuth["Register.Placeholder.Phone"]" />
+                                <label asp-for="Input.PhoneNumber"><i class="bi bi-telephone"></i> @LAuth["Register.PhoneNumber"]</label>
                                 <span asp-validation-for="Input.PhoneNumber" class="field-validation-error"></span>
                             </div>
                         </div>
@@ -59,9 +59,9 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-floating position-relative">
-                                <input asp-for="Input.Password" class="form-control" placeholder="حداقل ۱۲ کاراکتر" id="register-password" />
-                                <label asp-for="Input.Password"><i class="bi bi-lock"></i> رمز عبور</label>
-                                <button type="button" class="password-toggle" data-pw-toggle="register-password" tabindex="-1" aria-label="نمایش/مخفی‌سازی رمز عبور">
+                                <input asp-for="Input.Password" class="form-control" placeholder="@LAuth["Register.Placeholder.Password"]" id="register-password" />
+                                <label asp-for="Input.Password"><i class="bi bi-lock"></i> @LAuth["Register.Password"]</label>
+                                <button type="button" class="password-toggle" data-pw-toggle="register-password" tabindex="-1" aria-label="@LAuth["Login.PasswordToggle"]">
                                     <i class="bi bi-eye"></i>
                                 </button>
                                 <span asp-validation-for="Input.Password" class="field-validation-error"></span>
@@ -69,9 +69,9 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-floating position-relative">
-                                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="تکرار رمز عبور" id="register-confirm" />
-                                <label asp-for="Input.ConfirmPassword"><i class="bi bi-lock"></i> تکرار رمز عبور</label>
-                                <button type="button" class="password-toggle" data-pw-toggle="register-confirm" tabindex="-1" aria-label="نمایش/مخفی‌سازی رمز عبور">
+                                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="@LAuth["Register.Placeholder.ConfirmPassword"]" id="register-confirm" />
+                                <label asp-for="Input.ConfirmPassword"><i class="bi bi-lock"></i> @LAuth["Register.ConfirmPassword"]</label>
+                                <button type="button" class="password-toggle" data-pw-toggle="register-confirm" tabindex="-1" aria-label="@LAuth["Login.PasswordToggle"]">
                                     <i class="bi bi-eye"></i>
                                 </button>
                                 <span asp-validation-for="Input.ConfirmPassword" class="field-validation-error"></span>
@@ -80,14 +80,14 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100 btn-lg mt-2">
-                        <i class="bi bi-person-plus"></i> ثبت‌نام
+                        <i class="bi bi-person-plus"></i> @LAuth["Register.Submit"]
                     </button>
                 </form>
 
                 <p class="text-center mt-3 mb-0">
-                    <span class="text-muted small">قبلاً ثبت‌نام کرده‌اید؟</span>
+                    <span class="text-muted small">@LAuth["Register.HasAccount"]</span>
                     <a asp-page="/Account/Login" class="text-decoration-none small fw-bold">
-                        وارد شوید <i class="bi bi-arrow-left"></i>
+                        @LAuth["Register.LoginLink"] <i class="bi bi-arrow-left"></i>
                     </a>
                 </p>
             </div>

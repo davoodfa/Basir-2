@@ -1,5 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using Basir.Application.Auth.Interfaces;
+using Basir.Application.Globalization.Interfaces;
 using Basir.Infrastructure;
 using Basir.Infrastructure.Auth;
 using Basir.Infrastructure.Options;
@@ -46,6 +47,8 @@ public static class ServiceCollectionExtensions
 
         services.AddHttpContextAccessor();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
+        services.AddScoped<ICultureContext, CultureContextService>();
+        services.AddScoped<IThemeContext, ThemeContextService>();
 
         return services;
     }

@@ -1,30 +1,30 @@
 @page
 @model RegisterConfirmationModel
 @{
-    ViewData["Title"] = "ثبت‌نام انجام شد";
+    ViewData["Title"] = LAuth["Register.Success"];
 }
 
 <div class="auth-page">
     <div class="auth-card">
         <div class="card">
             <div class="card-header">
-                <div class="app-logo"><i class="bi bi-diamond-fill"></i> باسمه</div>
-                <h2>ثبت‌نام با موفقیت انجام شد</h2>
+                <div class="app-logo"><i class="bi bi-diamond-fill"></i> @LLayout["Brand"]</div>
+                <h2>@LAuth["Register.Success"]</h2>
             </div>
             <div class="card-body text-center">
                 <div class="success-check mb-3">
                     <i class="bi bi-check-lg"></i>
                 </div>
-                <p class="mb-1 fw-bold">حساب کاربری شما ایجاد شد.</p>
+                <p class="mb-1 fw-bold">@LAuth["Register.Success.Message"]</p>
                 <p class="text-muted small">
                     <i class="bi bi-envelope"></i>
-                    لطفاً ایمیل خود را بررسی کنید. یک لینک تأیید برای شما ارسال شده است.
+                    @LAuth["Register.Success.EmailCheck"]
                     <br />
-                    پس از تأیید ایمیل می‌توانید وارد حساب کاربری خود شوید.
+                    @LAuth["Register.Success.EmailCheckAfter"]
                 </p>
                 <div class="mt-4">
                     <a asp-page="/Account/Login" class="btn btn-primary btn-lg">
-                        <i class="bi bi-box-arrow-in-left"></i> ورود به حساب کاربری
+                        <i class="bi bi-box-arrow-in-left"></i> @LAuth["ConfirmEmail.Login"]
                     </a>
                 </div>
                 @if (!string.IsNullOrEmpty(Model.Email))
@@ -33,7 +33,7 @@
                         <form method="post" asp-page-handler="Resend" class="d-inline">
                             <input type="hidden" name="email" value="@Model.Email" />
                             <button type="submit" class="btn btn-link text-decoration-none small">
-                                <i class="bi bi-arrow-repeat"></i> ایمیل تأیید را دوباره ارسال کنید
+                                <i class="bi bi-arrow-repeat"></i> @LAuth["Register.ResendEmail"]
                             </button>
                         </form>
                     </div>

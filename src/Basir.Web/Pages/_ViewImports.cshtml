@@ -1,3 +1,17 @@
 ﻿@using Basir.Web
+@using Basir.Web.Resources
+@using Basir.Web.Resources.Authentication
+@using Basir.Web.Resources.Layout
+@using Basir.Web.Resources.Navigation
+@using Basir.Web.Resources.Errors
+@using Basir.Web.Resources.Validation
+@using Microsoft.Extensions.Localization
 @namespace Basir.Web.Pages
+@inject IStringLocalizer<SharedResource> L
+@inject IStringLocalizer<AuthenticationResource> LAuth
+@inject IStringLocalizer<LayoutResource> LLayout
+@inject IStringLocalizer<NavigationResource> LNav
+@inject IStringLocalizer<ErrorsResource> LErrors
+@inject IStringLocalizer<ValidationResource> LValidation
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Basir.Web

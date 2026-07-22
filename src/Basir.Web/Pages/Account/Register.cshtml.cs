@@ -24,33 +24,33 @@ public class RegisterModel : PageModel
 
     public class InputModel
     {
-        [Required(ErrorMessage = "ایمیل الزامی است.")]
-        [EmailAddress(ErrorMessage = "ایمیل معتبر وارد کنید.")]
+        [Required]
+        [EmailAddress]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "نام کاربری الزامی است.")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "نام کاربری باید بین ۳ تا ۵۰ کاراکتر باشد.")]
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
         public string UserName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "نام الزامی است.")]
-        [StringLength(50, ErrorMessage = "نام حداکثر ۵۰ کاراکتر می‌تواند باشد.")]
+        [Required]
+        [StringLength(50)]
         public string FirstName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "نام خانوادگی الزامی است.")]
-        [StringLength(50, ErrorMessage = "نام خانوادگی حداکثر ۵۰ کاراکتر می‌تواند باشد.")]
+        [Required]
+        [StringLength(50)]
         public string LastName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "رمز عبور الزامی است.")]
-        [StringLength(100, MinimumLength = 12, ErrorMessage = "رمز عبور باید حداقل ۱۲ کاراکتر باشد.")]
+        [Required]
+        [StringLength(100, MinimumLength = 12)]
         [DataType(DataType.Password)]
         public string Password { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "تکرار رمز عبور الزامی است.")]
-        [Compare("Password", ErrorMessage = "رمز عبور و تکرار آن مطابقت ندارند.")]
+        [Required]
+        [Compare("Password")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; } = string.Empty;
 
-        [Phone(ErrorMessage = "شماره تلفن معتبر وارد کنید.")]
+        [Phone]
         public string? PhoneNumber { get; set; }
     }
 

@@ -1,7 +1,7 @@
 ﻿@page
 @model ErrorModel
 @{
-    ViewData["Title"] = "خطا";
+    ViewData["Title"] = LErrors["Title"];
 }
 
 <div class="container py-5">
@@ -12,25 +12,25 @@
                     <div class="error-icon">
                         <i class="bi bi-exclamation-triangle-fill"></i>
                     </div>
-                    <h2 class="fw-bold text-danger mb-2">خطایی رخ داد</h2>
-                    <p class="text-muted mb-4">هنگام پردازش درخواست شما خطایی رخ داده است.</p>
+                    <h2 class="fw-bold text-danger mb-2">@LErrors["Generic.Heading"]</h2>
+                    <p class="text-muted mb-4">@LErrors["Generic.Message"]</p>
 
                     @if (Model.ShowRequestId)
                     {
                         <div class="d-flex align-items-center justify-content-center gap-2 mb-4">
-                            <span class="fw-bold small">شناسه درخواست:</span>
+                            <span class="fw-bold small">@LErrors["RequestId"]:</span>
                             <code class="small bg-light px-2 py-1 rounded">@Model.RequestId</code>
                         </div>
                     }
 
                     <div class="alert alert-info small text-start">
                         <i class="bi bi-info-circle"></i>
-                        در محیط توسعه، اطلاعات جزئی‌تری از خطا نمایش داده می‌شود.
-                        برای فعال‌سازی، متغیر محیطی <code>ASPNETCORE_ENVIRONMENT</code> را روی <code>Development</code> تنظیم کنید.
+                        @LErrors["DevMode"]
+                        @LErrors["DevMode.Hint"]
                     </div>
 
                     <a asp-page="/Index" class="btn btn-primary mt-3">
-                        <i class="bi bi-house-fill"></i> بازگشت به خانه
+                        <i class="bi bi-house-fill"></i> @LErrors["ReturnHome"]
                     </a>
                 </div>
             </div>

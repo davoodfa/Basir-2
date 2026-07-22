@@ -1,3 +1,4 @@
+using Basir.Infrastructure.Globalization.Seed;
 using Basir.Web.Extensions;
 using Basir.Web.Middleware;
 using Microsoft.EntityFrameworkCore;
@@ -5,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+builder.Services.AddBasirLocalization();
 builder.Services.AddBasirServices(builder.Configuration);
 
 if (!builder.Environment.IsDevelopment())
@@ -29,6 +31,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseSecurityHeaders();
+app.UseCulture();
+app.UseTheme();
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -57,4 +61,7 @@ static async Task InitializeDatabaseAsync(WebApplication app)
 
     await Basir.Infrastructure.Identity.IdentitySeeder
         .SeedAsync(roleManager, userManager);
+
+    var globalizationSeeder = services.GetRequiredService<GlobalizationSeeder>();
+    await globalizationSeeder.SeedAsync();
 }

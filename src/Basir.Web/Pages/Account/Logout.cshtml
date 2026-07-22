@@ -1,7 +1,7 @@
 @page
 @model LogoutModel
 @{
-    ViewData["Title"] = "خروج";
+    ViewData["Title"] = LAuth["Logout.Title"];
 }
 
 <div class="auth-page">
@@ -9,10 +9,10 @@
         <div class="card">
             <div class="card-body text-center py-5">
                 <div class="spinner-border text-primary mb-3" role="status" style="width:3rem;height:3rem;border-width:0.2em;">
-                    <span class="visually-hidden">در حال خروج...</span>
+                    <span class="visually-hidden">@LAuth["Logout.Spinner"]</span>
                 </div>
-                <h4>در حال خروج از حساب کاربری...</h4>
-                <p class="text-muted small"><i class="bi bi-clock"></i> لطفاً صبر کنید</p>
+                <h4>@LAuth["Logout.Leaving"]</h4>
+                <p class="text-muted small"><i class="bi bi-clock"></i> @LAuth["Logout.Wait"]</p>
             </div>
         </div>
     </div>

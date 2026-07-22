@@ -1,0 +1,89 @@
+@page
+@using Basir.Web.Pages.Manage
+@model PreferencesModel
+@{
+    ViewData["Title"] = LAuth["Preferences.Title"];
+}
+
+<div class="container py-4">
+    <div class="manage-card card">
+        <div class="card-body">
+            <div class="d-flex align-items-center gap-2 mb-4">
+                <i class="bi bi-gear" style="font-size:1.5rem;color:var(--bs-primary);"></i>
+                <h4 class="mb-0 fw-bold">@LAuth["Preferences.Title"]</h4>
+            </div>
+
+            @if (Model.Saved)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @LAuth["Preferences.Saved"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="Preferences.LanguageId" class="form-label">@LAuth["Preferences.Language"]</label>
+                        <select asp-for="Preferences.LanguageId" asp-items="@(new SelectList(Model.Preferences.Languages, "Id", "NativeName"))" class="form-select">
+                        </select>
+                        <span asp-validation-for="Preferences.LanguageId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Preferences.ThemeId" class="form-label">@LAuth["Preferences.Theme"]</label>
+                        <select asp-for="Preferences.ThemeId" asp-items="@(new SelectList(Model.Preferences.Themes, "Id", "DisplayName"))" class="form-select">
+                        </select>
+                        <span asp-validation-for="Preferences.ThemeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Preferences.TimeZoneId" class="form-label">@LAuth["Preferences.TimeZone"]</label>
+                        <select asp-for="Preferences.TimeZoneId" asp-items="@(new SelectList(Model.Preferences.TimeZones))" class="form-select">
+                        </select>
+                        <span asp-validation-for="Preferences.TimeZoneId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Preferences.CalendarType" class="form-label">@LAuth["Preferences.Calendar"]</label>
+                        <select asp-for="Preferences.CalendarType" class="form-select">
+                            <option value="Gregorian">Gregorian</option>
+                            <option value="Persian">Persian</option>
+                        </select>
+                        <span asp-validation-for="Preferences.CalendarType" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Preferences.NumberFormat" class="form-label">@LAuth["Preferences.NumberFormat"]</label>
+                        <select asp-for="Preferences.NumberFormat" class="form-select">
+                            <option value="Western">Western (123)</option>
+                            <option value="EasternArabic">Eastern Arabic (١٢٣)</option>
+                        </select>
+                        <span asp-validation-for="Preferences.NumberFormat" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Preferences.ItemsPerPage" class="form-label">@LAuth["Preferences.ItemsPerPage"]</label>
+                        <input asp-for="Preferences.ItemsPerPage" class="form-control" type="number" min="5" max="100" />
+                        <span asp-validation-for="Preferences.ItemsPerPage" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-lg"></i> @L["Common.Save"]
+                    </button>
+                    <a asp-page="/Manage/Index" class="btn btn-outline-secondary">
+                        @L["Common.Cancel"]
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

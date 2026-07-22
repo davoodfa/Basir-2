@@ -1,18 +1,33 @@
-﻿<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+﻿@{
+    var direction = Context.Items["Direction"]?.ToString() ?? "rtl";
+    var culture = Context.Items["Culture"]?.ToString() ?? "fa-IR";
+    var isRtl = direction == "rtl";
+    var theme = Context.Items["Theme"]?.ToString() ?? "light";
+    var currentLang = Context.Items["Language"] as Basir.Domain.Entities.Globalization.Language;
+}
+<!DOCTYPE html>
+<html lang="@culture" dir="@direction" data-bs-theme="@theme">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>@ViewData["Title"] — باسمه</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" />
+    <title>@string.Format(LLayout["TitleFormat"], ViewData["Title"] ?? LLayout["Brand"])</title>
+    @if (isRtl)
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    }
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Basir.Web.styles.css" asp-append-version="true" />
+    <theme-styles />
 </head>
 <body>
     <div id="loading-overlay" class="loading-overlay d-none">
         <div class="spinner-grow text-primary" role="status">
-            <span class="visually-hidden">در حال بارگذاری...</span>
+            <span class="visually-hidden">@LLayout["Loading"]</span>
         </div>
     </div>
 
@@ -22,15 +37,15 @@
         <nav class="navbar navbar-expand-sm navbar-light bg-white">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">
-                    <i class="bi bi-diamond-fill"></i> باسمه
+                    <i class="bi bi-diamond-fill"></i> @LLayout["Brand"]
                 </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-label="منو">
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-label="@LLayout["MenuToggle"]">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Index"><i class="bi bi-house-fill"></i> خانه</a>
+                            <a class="nav-link" asp-area="" asp-page="/Index"><i class="bi bi-house-fill"></i> @LNav["Home"]</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -40,20 +55,45 @@
                                 <a class="nav-link" asp-page="/Manage/Index"><i class="bi bi-person-circle"></i> @User.Identity.Name</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" asp-page="/Manage/Preferences"><i class="bi bi-gear"></i></a>
+                            </li>
+                            <li class="nav-item">
                                 <form asp-page="/Account/Logout" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-link nav-link"><i class="bi bi-box-arrow-right"></i> خروج</button>
+                                    <button type="submit" class="btn btn-link nav-link"><i class="bi bi-box-arrow-right"></i> @LNav["Logout"]</button>
                                 </form>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-page="/Account/Login"><i class="bi bi-box-arrow-in-left"></i> ورود</a>
+                                <a class="nav-link" asp-page="/Account/Login"><i class="bi bi-box-arrow-in-left"></i> @LNav["Login"]</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-page="/Account/Register"><i class="bi bi-person-plus"></i> ثبت‌نام</a>
+                                <a class="nav-link" asp-page="/Account/Register"><i class="bi bi-person-plus"></i> @LNav["Register"]</a>
                             </li>
                         }
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-globe2"></i> @(currentLang?.NativeName ?? LLayout["LanguagePersian"])
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <h6 class="dropdown-header">@LLayout["LanguagePersian"]</h6>
+                                <a class="dropdown-item" href="#" onclick="switchLanguage('fa-IR'); return false;">
+                                    @LLayout["LanguagePersian"]
+                                </a>
+                                <a class="dropdown-item" href="#" onclick="switchLanguage('en-US'); return false;">
+                                    @LLayout["LanguageEnglish"]
+                                </a>
+                                <a class="dropdown-item" href="#" onclick="switchLanguage('ar-SA'); return false;">
+                                    @LLayout["LanguageArabic"]
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-link nav-link" onclick="toggleTheme()" title="@LLayout["MenuToggle"]">
+                                <i class="bi bi-moon-stars-fill" id="theme-icon"></i>
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -66,13 +106,43 @@
 
     <footer class="footer text-muted">
         <div class="container text-center">
-            <i class="bi bi-c-circle"></i> @DateTime.Now.Year — باسمه. تمامی حقوق محفوظ است.
+            <i class="bi bi-c-circle"></i> @DateTime.Now.Year — @LLayout["Brand"]. @LLayout["FooterCopyright"]
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        function switchLanguage(culture) {
+            document.cookie = 'Basir.Culture=' + culture + '; path=/; max-age=' + (365 * 24 * 60 * 60) + '; sameSite=strict';
+            location.reload();
+        }
+
+        function toggleTheme() {
+            var current = document.documentElement.getAttribute('data-bs-theme') || 'light';
+            var themes = { 'light': 'dark', 'dark': 'light', 'blue': 'light' };
+            var next = themes[current] || 'light';
+            document.documentElement.setAttribute('data-bs-theme', next);
+            document.cookie = 'Basir.Theme=' + next + '; path=/; max-age=' + (365 * 24 * 60 * 60) + '; sameSite=strict';
+            updateThemeIcon(next);
+        }
+
+        function updateThemeIcon(theme) {
+            var icon = document.getElementById('theme-icon');
+            if (!icon) return;
+            if (theme === 'dark') {
+                icon.className = 'bi bi-sun-fill';
+            } else {
+                icon.className = 'bi bi-moon-stars-fill';
+            }
+        }
+
+        (function () {
+            var theme = document.documentElement.getAttribute('data-bs-theme') || 'light';
+            updateThemeIcon(theme);
+        })();
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

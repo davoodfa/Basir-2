@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Preferences.TimeZone" xml:space="preserve">
+    <value>المنطقة الزمنية</value>
+  </data>
+  <data name="Login.PasswordToggle" xml:space="preserve">
+    <value>إظهار/إخفاء كلمة المرور</value>
+  </data>
+  <data name="Preferences.Title" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="ConfirmEmail.Failure" xml:space="preserve">
+    <value>فشل تأكيد البريد الإلكتروني.</value>
+  </data>
+  <data name="Preferences.ItemsPerPage" xml:space="preserve">
+    <value>العناصر في كل صفحة</value>
+  </data>
+  <data name="ResetPassword.Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Logout.Wait" xml:space="preserve">
+    <value>يرجى الانتظار</value>
+  </data>
+  <data name="ResetPassword.ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور الجديدة</value>
+  </data>
+  <data name="ChangePassword.NewPassword" xml:space="preserve">
+    <value>كلمة المرور الجديدة</value>
+  </data>
+  <data name="ForgotPassword.ReturnToLogin" xml:space="preserve">
+    <value>العودة إلى تسجيل الدخول</value>
+  </data>
+  <data name="Register.Title" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="Register.Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Register.Success.Message" xml:space="preserve">
+    <value>تم إنشاء حسابك.</value>
+  </data>
+  <data name="ChangePassword.Title" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="ConfirmEmail.Title" xml:space="preserve">
+    <value>تأكيد البريد الإلكتروني</value>
+  </data>
+  <data name="Register.FirstName" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="ResetPassword.Success" xml:space="preserve">
+    <value>تم إعادة تعيين كلمة المرور.</value>
+  </data>
+  <data name="Manage.Settings" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="Login.Submit" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="ChangePassword.CurrentPassword" xml:space="preserve">
+    <value>كلمة المرور الحالية</value>
+  </data>
+  <data name="ChangePassword.Submit" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="Register.ResendEmail" xml:space="preserve">
+    <value>إعادة إرسال بريد التأكيد</value>
+  </data>
+  <data name="Manage.ChangePassword" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="Preferences.Saved" xml:space="preserve">
+    <value>تم حفظ الإعدادات بنجاح.</value>
+  </data>
+  <data name="ConfirmEmail.Spinner" xml:space="preserve">
+    <value>جارٍ التأكيد...</value>
+  </data>
+  <data name="Register.HasAccount" xml:space="preserve">
+    <value>مسجل بالفعل؟</value>
+  </data>
+  <data name="ForgotPassword.Submit" xml:space="preserve">
+    <value>إرسال رابط إعادة التعيين</value>
+  </data>
+  <data name="ConfirmEmail.Verifying" xml:space="preserve">
+    <value>جارٍ تأكيد بريدك الإلكتروني...</value>
+  </data>
+  <data name="Login.Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Register.Success" xml:space="preserve">
+    <value>تم التسجيل بنجاح</value>
+  </data>
+  <data name="ChangePassword.Return" xml:space="preserve">
+    <value>العودة إلى إدارة الحساب</value>
+  </data>
+  <data name="AccessDenied.ReturnHome" xml:space="preserve">
+    <value>العودة إلى الرئيسية</value>
+  </data>
+  <data name="Login.RememberMe" xml:space="preserve">
+    <value>تذكرني</value>
+  </data>
+  <data name="Manage.Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="ConfirmEmail.RegisterAgain" xml:space="preserve">
+    <value>التسجيل مرة أخرى</value>
+  </data>
+  <data name="AccessDenied.Heading" xml:space="preserve">
+    <value>وصول مقيد</value>
+  </data>
+  <data name="Register.Subtitle" xml:space="preserve">
+    <value>املأ المعلومات أدناه للتسجيل</value>
+  </data>
+  <data name="Register.Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Register.LastName" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="Logout.Spinner" xml:space="preserve">
+    <value>جارٍ تسجيل الخروج...</value>
+  </data>
+  <data name="ChangePassword.Success" xml:space="preserve">
+    <value>تم تغيير كلمة المرور بنجاح</value>
+  </data>
+  <data name="Manage.Username" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="Manage.Roles" xml:space="preserve">
+    <value>الأدوار</value>
+  </data>
+  <data name="ResetPassword.Subtitle" xml:space="preserve">
+    <value>أدخل كلمة المرور الجديدة</value>
+  </data>
+  <data name="Preferences.NumberFormat" xml:space="preserve">
+    <value>تنسيق الأرقام</value>
+  </data>
+  <data name="Login.NoAccount" xml:space="preserve">
+    <value>ليس لديك حساب؟</value>
+  </data>
+  <data name="Login.ForgotPassword" xml:space="preserve">
+    <value>هل نسيت كلمة المرور؟</value>
+  </data>
+  <data name="Breadcrumb.ManageAccount" xml:space="preserve">
+    <value>إدارة الحساب</value>
+  </data>
+  <data name="Preferences.Calendar" xml:space="preserve">
+    <value>التقويم</value>
+  </data>
+  <data name="ResetPassword.NewPassword" xml:space="preserve">
+    <value>كلمة المرور الجديدة</value>
+  </data>
+  <data name="Register.UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="ConfirmEmail.Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="ChangePassword.Success.Desc" xml:space="preserve">
+    <value>تم تحديث كلمة مرور حسابك.</value>
+  </data>
+  <data name="Register.ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Login.RegisterLink" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="Login.Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Preferences.Language" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Register.PhoneNumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="ResetPassword.Title" xml:space="preserve">
+    <value>إعادة تعيين كلمة المرور</value>
+  </data>
+  <data name="Login.Title" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Breadcrumb.ChangePassword" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="Manage.Title" xml:space="preserve">
+    <value>إدارة الحساب</value>
+  </data>
+  <data name="Logout.Leaving" xml:space="preserve">
+    <value>جارٍ تسجيل الخروج...</value>
+  </data>
+  <data name="Register.Success.EmailCheck" xml:space="preserve">
+    <value>يرجى التحقق من بريدك الإلكتروني.</value>
+  </data>
+  <data name="ForgotPassword.Title" xml:space="preserve">
+    <value>نسيت كلمة المرور</value>
+  </data>
+  <data name="Register.LoginLink" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Login.Subtitle" xml:space="preserve">
+    <value>أدخل بريدك الإلكتروني وكلمة المرور</value>
+  </data>
+  <data name="AccessDenied.Message" xml:space="preserve">
+    <value>ليس لديك إذن.</value>
+  </data>
+  <data name="Register.Submit" xml:space="preserve">
+    <value>تسجيل</value>
+  </data>
+  <data name="ForgotPassword.Success" xml:space="preserve">
+    <value>إذا كان الحساب موجودًا، تم إرسال رابط إعادة التعيين.</value>
+  </data>
+  <data name="ChangePassword.ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور الجديدة</value>
+  </data>
+  <data name="ConfirmEmail.Success" xml:space="preserve">
+    <value>تم تأكيد بريدك الإلكتروني.</value>
+  </data>
+  <data name="Preferences.Theme" xml:space="preserve">
+    <value>السمة</value>
+  </data>
+  <data name="ResetPassword.Submit" xml:space="preserve">
+    <value>إعادة تعيين</value>
+  </data>
+</root>

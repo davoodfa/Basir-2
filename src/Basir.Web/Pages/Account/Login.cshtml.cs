@@ -32,11 +32,11 @@ public class LoginModel : PageModel
 
     public class InputModel
     {
-        [Required(ErrorMessage = "ایمیل الزامی است.")]
-        [EmailAddress(ErrorMessage = "ایمیل معتبر وارد کنید.")]
+        [Required]
+        [EmailAddress]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "رمز عبور الزامی است.")]
+        [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; } = string.Empty;
 

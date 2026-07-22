@@ -23,3 +23,28 @@ public enum TokenType
     Refresh = 3,
     TwoFactor = 4
 }
+
+public enum ThemeType
+{
+    Light = 0,
+    Dark = 1,
+    Custom = 2
+}
+
+public enum Direction
+{
+    Ltr = 0,
+    Rtl = 1
+}
+
+public enum CalendarType
+{
+    Gregorian = 0,
+    Persian = 1
+}
+
+public enum NumberFormatType
+{
+    Western = 0,
+    EasternArabic = 1
+}

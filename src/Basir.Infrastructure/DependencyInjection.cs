@@ -1,9 +1,15 @@
 using Basir.Application.Auth;
 using Basir.Application.Auth.Interfaces;
 using Basir.Application.Auth.Services;
+using Basir.Application.Globalization;
+using Basir.Application.Globalization.Interfaces;
+using Basir.Application.Globalization.Services;
 using Basir.Domain.Entities.Identity;
 using Basir.Domain.Interfaces.Repositories;
 using Basir.Infrastructure.Auth;
+using Basir.Infrastructure.Globalization.Repositories;
+using Basir.Infrastructure.Globalization.Seed;
+using Basir.Infrastructure.Globalization.Services;
 using Basir.Infrastructure.Identity;
 using Basir.Infrastructure.Options;
 using Basir.Infrastructure.Persistence.Interceptors;
@@ -30,6 +36,7 @@ public static class DependencyInjection
         AddJwt(services);
         AddRepositories(services);
         AddServices(services);
+        AddGlobalization(services, config);
 
         return services;
     }
@@ -73,8 +80,10 @@ public static class DependencyInjection
     {
         services.Configure<JwtOptions>(config.GetSection(JwtOptions.SectionName));
         services.Configure<AuthOptions>(config.GetSection(AuthOptions.SectionName));
+        services.Configure<GlobalizationOptions>(config.GetSection(GlobalizationOptions.SectionName));
         services.AddSingleton(sp => sp.GetRequiredService<IOptions<JwtOptions>>().Value);
         services.AddSingleton(sp => sp.GetRequiredService<IOptions<AuthOptions>>().Value);
+        services.AddSingleton(sp => sp.GetRequiredService<IOptions<GlobalizationOptions>>().Value);
     }
 
     private static void AddJwt(IServiceCollection services)
@@ -100,5 +109,21 @@ public static class DependencyInjection
         services.AddScoped<IEmailService, EmailSender>();
         services.AddScoped<ISmsService, SmsSender>();
         services.AddValidatorsFromAssemblyContaining<Application.Auth.Validators.RegisterValidator>();
+    }
+
+    private static void AddGlobalization(IServiceCollection services, IConfiguration config)
+    {
+        services.AddMemoryCache();
+
+        services.AddScoped<ILanguageRepository, LanguageRepository>();
+        services.AddScoped<IThemeRepository, ThemeRepository>();
+        services.AddScoped<IUserPreferenceRepository, UserPreferenceRepository>();
+        services.AddScoped<ITranslationRepository, TranslationRepository>();
+
+        services.AddScoped<ILocalizationService, CachedLocalizationService>();
+        services.AddScoped<IThemeService, ThemeService>();
+        services.AddScoped<IUserPreferenceService, UserPreferenceService>();
+
+        services.AddScoped<GlobalizationSeeder>();
     }
 }
