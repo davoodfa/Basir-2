@@ -42,7 +42,20 @@ public class GlobalizationSeeder
             CreatedAt = DateTime.UtcNow
         };
 
-        _context.Set<Language>().AddRange(persian, english);
+        var arabic = new Language
+        {
+            Code = "ar-SA",
+            Name = "Arabic",
+            NativeName = "العربية",
+            Direction = Direction.Rtl,
+            FlagIcon = "bi-flag",
+            IsDefault = false,
+            IsEnabled = true,
+            SortOrder = 3,
+            CreatedAt = DateTime.UtcNow
+        };
+
+        _context.Set<Language>().AddRange(persian, english, arabic);
         await _context.SaveChangesAsync();
 
         var lightTheme = new Theme
@@ -93,8 +106,10 @@ public class GlobalizationSeeder
             // Common module
             new() { LanguageId = persian.Id, Module = "Common", ResourceKey = "Shared.Save", Value = "ذخیره", CreatedAt = DateTime.UtcNow },
             new() { LanguageId = english.Id, Module = "Common", ResourceKey = "Shared.Save", Value = "Save", CreatedAt = DateTime.UtcNow },
+            new() { LanguageId = arabic.Id, Module = "Common", ResourceKey = "Shared.Save", Value = "حفظ", CreatedAt = DateTime.UtcNow },
             new() { LanguageId = persian.Id, Module = "Common", ResourceKey = "Shared.Cancel", Value = "لغو", CreatedAt = DateTime.UtcNow },
             new() { LanguageId = english.Id, Module = "Common", ResourceKey = "Shared.Cancel", Value = "Cancel", CreatedAt = DateTime.UtcNow },
+            new() { LanguageId = arabic.Id, Module = "Common", ResourceKey = "Shared.Cancel", Value = "إلغاء", CreatedAt = DateTime.UtcNow },
             new() { LanguageId = persian.Id, Module = "Common", ResourceKey = "Shared.Delete", Value = "حذف", CreatedAt = DateTime.UtcNow },
             new() { LanguageId = english.Id, Module = "Common", ResourceKey = "Shared.Delete", Value = "Delete", CreatedAt = DateTime.UtcNow },
             new() { LanguageId = persian.Id, Module = "Common", ResourceKey = "Shared.Edit", Value = "ویرایش", CreatedAt = DateTime.UtcNow },
