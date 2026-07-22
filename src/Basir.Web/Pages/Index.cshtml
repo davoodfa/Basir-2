@@ -1,0 +1,67 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "خانه";
+}
+
+<div class="hero-section">
+    <div class="container">
+        <div class="hero-icon">
+            <i class="bi bi-diamond-fill"></i>
+        </div>
+        <h1>به <span style="color:var(--bs-primary);">باسمه</span> خوش آمدید</h1>
+        <p>سامانه مدیریت هویت و احراز هویت مدرن با امنیت بالا و تجربه کاربری روان</p>
+
+        @if (!(User.Identity?.IsAuthenticated ?? false))
+        {
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a asp-page="/Account/Register" class="btn btn-primary btn-lg px-4">
+                    <i class="bi bi-person-plus"></i> ثبت‌نام
+                </a>
+                <a asp-page="/Account/Login" class="btn btn-outline-primary btn-lg px-4">
+                    <i class="bi bi-box-arrow-in-left"></i> ورود
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a asp-page="/Manage/Index" class="btn btn-primary btn-lg px-4">
+                    <i class="bi bi-person-gear"></i> مدیریت حساب
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row g-4">
+        <div class="col-12 col-md-4">
+            <div class="card feature-card slide-up" style="animation-delay:0.1s;">
+                <div class="card-body">
+                    <div class="card-icon"><i class="bi bi-shield-check"></i></div>
+                    <h5 class="card-title">امنیت بالا</h5>
+                    <p class="card-text">احراز هویت چندعاملی، رمزگذاری پیشرفته و محافظت در برابر حملات رایج</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card feature-card slide-up" style="animation-delay:0.2s;">
+                <div class="card-body">
+                    <div class="card-icon"><i class="bi bi-lightning-charge"></i></div>
+                    <h5 class="card-title">سرعت بالا</h5>
+                    <p class="card-text">طراحی شده با معماری مدرن و بهینه برای پاسخگویی سریع و تجربه روان کاربری</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card feature-card slide-up" style="animation-delay:0.3s;">
+                <div class="card-body">
+                    <div class="card-icon"><i class="bi bi-devices"></i></div>
+                    <h5 class="card-title">واکنش‌گرا</h5>
+                    <p class="card-text">طراحی کاملاً واکنش‌گرا و بهینه برای موبایل، تبلت و دسکتاپ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

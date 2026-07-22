@@ -1,0 +1,39 @@
+@page
+@using Basir.Web.Pages.Manage
+@model Basir.Web.Pages.Manage.IndexModel
+@{
+    ViewData["Title"] = "مدیریت حساب";
+}
+
+<div class="container py-4">
+    <div class="manage-card card">
+        <div class="card-body">
+            <div class="d-flex align-items-center gap-2 mb-4">
+                <i class="bi bi-person-gear" style="font-size:1.5rem;color:var(--bs-primary);"></i>
+                <h4 class="mb-0 fw-bold">مدیریت حساب کاربری</h4>
+            </div>
+
+            <div class="info-row">
+                <i class="bi bi-person-fill info-icon"></i>
+                <span class="label">نام کاربری</span>
+                <span class="value">@Model.UserName</span>
+            </div>
+            <div class="info-row">
+                <i class="bi bi-envelope-fill info-icon"></i>
+                <span class="label">ایمیل</span>
+                <span class="value">@Model.Email</span>
+            </div>
+            <div class="info-row">
+                <i class="bi bi-shield-fill-check info-icon"></i>
+                <span class="label">نقش‌ها</span>
+                <span class="value">@string.Join("، ", Model.Roles)</span>
+            </div>
+
+            <div class="mt-4">
+                <a asp-page="/Manage/ChangePassword" class="btn btn-primary">
+                    <i class="bi bi-key"></i> تغییر رمز عبور
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

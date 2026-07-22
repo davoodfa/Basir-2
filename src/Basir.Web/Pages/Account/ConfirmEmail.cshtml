@@ -1,0 +1,53 @@
+@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "تأیید ایمیل";
+}
+
+<div class="auth-page">
+    <div class="auth-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="app-logo"><i class="bi bi-diamond-fill"></i> باسمه</div>
+                <h2>تأیید ایمیل</h2>
+            </div>
+            <div class="card-body text-center">
+                @if (Model.Succeeded)
+                {
+                    <div class="success-check mb-3">
+                        <i class="bi bi-check-lg"></i>
+                    </div>
+                    <div class="alert alert-success">
+                        <i class="bi bi-envelope-check"></i>
+                        ایمیل شما با موفقیت تأیید شد. اکنون می‌توانید وارد حساب کاربری خود شوید.
+                    </div>
+                    <a asp-page="/Account/Login" class="btn btn-primary mt-2">
+                        <i class="bi bi-box-arrow-in-left"></i> ورود به حساب کاربری
+                    </a>
+                }
+                else if (Model.Invalid)
+                {
+                    <div class="mb-3" style="font-size:3.5rem;color:#ef4444;">
+                        <i class="bi bi-x-octagon-fill"></i>
+                    </div>
+                    <div class="alert alert-danger">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        تأیید ایمیل ناموفق بود. ممکن است لینک منقضی شده یا نامعتبر باشد.
+                    </div>
+                    <a asp-page="/Account/Register" class="btn btn-outline-primary mt-2">
+                        <i class="bi bi-person-plus"></i> ثبت‌نام مجدد
+                    </a>
+                }
+                else
+                {
+                    <div class="d-flex justify-content-center py-4">
+                        <div class="spinner-border text-primary" role="status" style="width:3rem;height:3rem;">
+                            <span class="visually-hidden">در حال تأیید...</span>
+                        </div>
+                    </div>
+                    <p class="text-muted">در حال تأیید ایمیل شما...</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

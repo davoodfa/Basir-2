@@ -1,0 +1,15 @@
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\Basir.Application.csproj.AssemblyReference.cache
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\Basir.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\Basir.Application.AssemblyInfoInputs.cache
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\Basir.Application.AssemblyInfo.cs
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\Basir.Application.csproj.CoreCompileInputs.cache
+D:\Basir\src\Basir.Application\bin\Debug\net8.0\Basir.Application.deps.json
+D:\Basir\src\Basir.Application\bin\Debug\net8.0\Basir.Application.dll
+D:\Basir\src\Basir.Application\bin\Debug\net8.0\Basir.Application.pdb
+D:\Basir\src\Basir.Application\bin\Debug\net8.0\Basir.Domain.dll
+D:\Basir\src\Basir.Application\bin\Debug\net8.0\Basir.Domain.pdb
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\Basir.Ap.1D783EA2.Up2Date
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\Basir.Application.dll
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\refint\Basir.Application.dll
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\Basir.Application.pdb
+D:\Basir\src\Basir.Application\obj\Debug\net8.0\ref\Basir.Application.dll

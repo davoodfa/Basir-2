@@ -1,0 +1,32 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "حریم خصوصی";
+}
+
+<div class="container py-4">
+    <div class="card page-card fade-in">
+        <div class="card-body">
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-shield-lock" style="font-size:1.5rem;color:var(--bs-primary);"></i>
+                <h2 class="fw-bold mb-0">@ViewData["Title"]</h2>
+            </div>
+            <p class="text-muted">
+                حریم خصوصی کاربران برای ما بسیار مهم است. این صفحه جزئیات سیاست‌های حفظ حریم خصوصی سامانه باسمه را شرح می‌دهد.
+            </p>
+            <hr />
+            <h5 class="fw-bold">اطلاعات جمع‌آوری شده</h5>
+            <p class="text-muted">
+                ما تنها اطلاعاتی را جمع‌آوری می‌کنیم که شما داوطلبانه در اختیار ما قرار می‌دهید، از جمله نام، ایمیل و شماره تماس.
+            </p>
+            <h5 class="fw-bold">استفاده از اطلاعات</h5>
+            <p class="text-muted">
+                اطلاعات شما صرفاً برای ارائه خدمات احراز هویت، پشتیبانی و بهبود تجربه کاربری استفاده می‌شود.
+            </p>
+            <h5 class="fw-bold">امنیت اطلاعات</h5>
+            <p class="text-muted">
+                تمامی اطلاعات شما با استفاده از پروتکل‌های رمزگذاری استاندارد صنعتی محافظت می‌شود.
+            </p>
+        </div>
+    </div>
+</div>

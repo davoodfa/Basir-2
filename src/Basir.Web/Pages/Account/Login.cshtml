@@ -1,0 +1,67 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "ورود";
+}
+
+<div class="auth-page">
+    <div class="auth-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="app-logo"><i class="bi bi-diamond-fill"></i> باسمه</div>
+                <h2>ورود به حساب کاربری</h2>
+                <p class="subtitle">برای ادامه ایمیل و رمز عبور خود را وارد کنید</p>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert" style="display:@(ViewData.ModelState.IsValid ? "none" : "block")"></div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Email" class="form-control" placeholder="example@email.com" autocomplete="email" />
+                        <label asp-for="Input.Email"><i class="bi bi-envelope"></i> ایمیل</label>
+                        <span asp-validation-for="Input.Email" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-floating mb-3 position-relative">
+                        <input asp-for="Input.Password" class="form-control" placeholder="رمز عبور" autocomplete="current-password" id="login-password" />
+                        <label asp-for="Input.Password"><i class="bi bi-lock"></i> رمز عبور</label>
+                        <button type="button" class="password-toggle" data-pw-toggle="login-password" tabindex="-1" aria-label="نمایش/مخفی‌سازی رمز عبور">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <span asp-validation-for="Input.Password" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="mb-4 d-flex align-items-center">
+                        <div class="form-check">
+                            <input asp-for="Input.RememberMe" class="form-check-input" />
+                            <label asp-for="Input.RememberMe" class="form-check-label">مرا به خاطر بسپار</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 btn-lg">
+                        <i class="bi bi-box-arrow-in-left"></i> ورود
+                    </button>
+                </form>
+
+                <div class="auth-divider">یا</div>
+
+                <div class="text-center">
+                    <a asp-page="/Account/ForgotPassword" class="text-decoration-none small">
+                        <i class="bi bi-question-circle"></i> رمز عبور خود را فراموش کرده‌اید؟
+                    </a>
+                </div>
+
+                <p class="text-center mt-3 mb-0">
+                    <span class="text-muted small">حساب کاربری ندارید؟</span>
+                    <a asp-page="/Account/Register" class="text-decoration-none small fw-bold">
+                        ثبت‌نام کنید <i class="bi bi-arrow-left"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
